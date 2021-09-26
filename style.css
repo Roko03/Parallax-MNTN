@@ -1,0 +1,823 @@
+@font-face {
+    font-family: 'gilroy';
+    src: url('./Font/gilroy-extrabold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+
+
+@font-face {
+    font-family: 'gilroy';
+    src: url('./Font/gilroy-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Chronicle Display Light Italic';
+    font-style: italic;
+    font-weight: normal;
+    src: url('Chronicle Display Light Italic.woff') format('woff');
+    }
+    
+
+    @font-face {
+    font-family: 'Chronicle Display Roman';
+    font-style: normal;
+    font-weight: normal;
+    src: url('Chronicle Display Roman.woff') format('woff');
+    }
+    
+
+    @font-face {
+    font-family: 'Chronicle Display Semibold';
+    font-style: normal;
+    font-weight: normal;
+    src: url('Chronicle Display Semibold.woff') format('woff');
+    }
+    
+
+    @font-face {
+    font-family: 'Chronicle Display Black';
+    font-style: normal;
+    font-weight: normal;
+    src: url('Chronicle Display Black.woff') format('woff');
+    }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Typography */
+
+:root{
+    --background-color:#0B1D26;
+    --basic-white:#FFFFFF;
+    --gold:#FBD784;
+    --font-size-mobile:0.9rem;
+}
+
+img{
+    width: 100%;
+}
+
+/*End Typography*/
+
+body{
+    background-color:var(--background-color);
+    min-height: 100%;
+
+    position: relative;
+    overflow-x: hidden;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+/*Header*/
+
+.nav-desktop{
+    display: none;
+}
+
+.nav-mobile{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1.2rem 0;
+    z-index: 4;
+}
+
+.logo img{
+    width: 80%;
+    height: 80%;
+}
+
+/*End Header*/
+
+
+/*Left-side*/
+
+.left-side{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    align-items: flex-end;
+    margin-left:1.2rem;
+    z-index: 6;
+}
+
+.left-side h3{
+    font-family: "gilroy";
+    font-weight: 700;
+    font-style: normal;
+    color: #f8f8f8;
+    font-size: var(--font-size-mobile);
+}
+
+.left-side a{
+    width: 3vh;
+    height: 3vh;
+}
+
+.left-side h3 + a{
+    margin-top: 0.8rem;
+}
+
+.left-side a + a{
+    margin-top: 0.8rem;
+}
+
+
+/*End Left-side*/
+
+/*Right-side*/
+
+.right-side{
+    position: fixed;
+    top: 50%;
+    right: 0;
+    margin-right: 1.2rem;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 1000;
+}
+
+.right-side a{
+    position: relative;
+    font-family: "gilroy";
+    font-weight: 700;
+    font-style: normal;
+    color: var(--basic-white);
+    font-size: var(--font-size-mobile);
+    text-decoration: none;
+    line-height: 3rem;
+    padding-right: 0.9rem;
+    opacity: 50%;
+}
+
+.right-side a::after{
+    content: '';
+    width: 3px;
+    height: 3rem;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: var(--basic-white);
+}
+
+.right-side > a:active, a:hover{
+    opacity: 100%;
+}
+
+/*End Right-side*/
+
+
+/*Parallax*/
+
+.parallax{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.picture-minimobile{
+    display: block;
+}
+
+.picture-bigmobile{
+    display: none;
+}
+
+.picture-tablet{
+    display: none;
+}
+
+.picture-bigtablet{
+    display: none;
+}
+
+.picture-desktop{
+    display: none;
+}
+
+.parallax::after{
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    width: 100%;
+    height: 11.3rem;
+    background: linear-gradient(180deg, rgba(11, 29, 38, 0) 0%, #0B1D26 , transparent);
+    z-index: 5;
+}
+
+.parallax .picture{
+    position: absolute;
+    pointer-events: none;
+    object-fit: cover;
+}
+
+.parallax img:nth-child(1){
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.parallax img:nth-child(2){
+    bottom: 2rem;
+    left: 0;
+    z-index: 2;
+}
+
+.parallax img:nth-child(3){
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+}
+
+.parallax .text{
+    position: absolute;
+    top: 20%;
+    left: 0;
+    margin: 0 80px 0 20px;
+    z-index: 3;
+}
+
+.parallax .text h6{
+    position: relative;
+    font-family: "gilroy";
+    font-weight: bold;
+    font-style: normal;
+    color: var(--gold);
+    font-size: calc(12px + 3 * ((100vw - 420px) / 860));
+    padding-left: 1.8rem;
+}
+
+.parallax .text h6::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 1.4rem;
+    height: 1px;
+    background-color: var(--gold);
+}
+
+.parallax .text h1{
+    margin-top: 0.6rem;
+    font-family: 'Chronicle Display Semibold';
+    font-style: normal;
+    font-weight: 500;
+    color: var(--basic-white);
+    font-size: calc(22px + 3 * ((100vw - 420px) / 860));
+}
+
+.parallax .scroll{
+    margin-top: 0.8rem;
+    display: flex;
+}
+
+.parallax .scroll h5{
+    font-family: "gilroy";
+    font-weight: 500;
+    font-style: normal;
+    color: var(--basic-white);
+    font-size: calc(10px + 3 * ((100vw - 420px) / 860));
+    text-transform: lowercase;
+    padding-right: .7rem;
+}
+
+.parallax .scroll img{
+    width: 0.4rem;
+}
+
+/*End Parallax*/
+
+
+/*Card*/
+
+.group{
+    background-color: var(--background-color);
+    margin-top: 10px;
+    z-index: 8;
+}
+
+.card{
+    margin:40px 80px 0 20px;
+    z-index: 8;
+}
+
+.caption1{
+    position: relative;
+}
+
+.caption1::before{
+    position: absolute;
+    content: '01';
+    top: -2rem;
+    left: -0.6rem;
+    font-size: calc(80px + 3 * ((100vw - 420px) / 860));
+    font-family: "gilroy";
+    font-weight: bold;
+    font-style: normal;
+    z-index: 8;
+    color: var(--basic-white);
+    opacity: .1;
+}
+
+.caption2{
+    position: relative;
+}
+
+.caption2::before{
+    position: absolute;
+    content: '02';
+    top: -2rem;
+    left: -0.6rem;
+    font-size: calc(80px + 3 * ((100vw - 420px) / 860));
+    font-family: "gilroy";
+    font-weight: bold;
+    font-style: normal;
+    z-index: 8;
+    color: var(--basic-white);
+    opacity: .1;
+}
+
+.caption3{
+    position: relative;
+}
+
+.caption3::before{
+    position: absolute;
+    content: '03';
+    top: -2rem;
+    left: -0.6rem;
+    font-size: calc(80px + 3 * ((100vw - 420px) / 860));
+    font-family: "gilroy";
+    font-weight: bold;
+    font-style: normal;
+    z-index: 8;
+    color: var(--basic-white);
+    opacity: .1;
+}
+
+.card h6{
+    position: relative;
+    font-family: "gilroy";
+    font-weight: bold;
+    font-style: normal;
+    color: var(--gold);
+    padding-left: 1.8rem;
+    text-transform: uppercase;
+    font-size: calc(10px + 3 * ((100vw - 420px) / 860));
+    z-index: 9;
+}
+
+.card h6::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 1.4rem;
+    height: 1px;
+    background-color: var(--gold);
+    z-index: 9;
+}
+
+.card h1{
+    margin-top: 0.6rem;
+    font-family: 'Chronicle Display Semibold';
+    font-style: normal;
+    font-weight: 500;
+    color: var(--basic-white);
+    font-size: calc(22px + 3 * ((100vw - 420px) / 860));
+    z-index: 9;
+}
+
+.card p{
+    margin-top: 0.6rem;
+    font-family: "gilroy";
+    font-weight: normal;
+    font-style: normal;
+    color: var(--basic-white);
+    font-size: calc(12px + 3 * ((100vw - 420px) / 860));
+    line-height: 1.2rem;
+}
+
+.card .read-more-btn{
+    margin-top: 0.6rem;
+    display: flex;
+    align-items: center;
+    font-family: "gilroy";
+    font-weight: 500;
+    font-style: normal;
+    color: var(--gold);
+    font-size: calc(11px + 3 * ((100vw - 420px) / 860));
+    text-transform: lowercase;
+    text-decoration: none;
+}
+
+.card .read-more-btn img{
+    margin-left: .5rem;
+    width: 0.7rem;
+}
+
+.card .img{
+    margin-top: 20px;
+}
+
+/*End Card*/
+
+
+/*Footer*/
+
+footer{
+    position: absolute;
+    width: 100%;
+    background-color: var(--background-color);
+    margin-top: 3rem;
+    padding: 0 20px 10px;
+    z-index: 10001;
+}
+
+footer img{
+    width: 4rem;
+}
+
+.footer-box{
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(auto-fit, minmax(150px,200px));
+    grid-gap: 2rem;
+}
+
+footer p{
+    font-family: "gilroy";
+    font-weight: normal;
+    font-style: normal;
+    color: var(--basic-white);
+    font-size: calc(11px + 3 * ((100vw - 420px) / 860));
+    line-height: 1.2rem;
+    margin-top: .5rem;
+}
+
+footer h2{
+    font-family: "gilroy";
+    font-weight: bold;
+    font-style: normal;
+    color: var(--gold);
+    font-size: calc(13px + 3 * ((100vw - 420px) / 860));
+
+} 
+
+footer h3{
+    font-family: "gilroy";
+    font-weight: normal;
+    font-style: normal;
+    color: var(--basic-white);
+    font-size: calc(11px + 3 * ((100vw - 420px) / 860));
+    margin-top: .3rem;
+}
+
+footer h6{
+    font-family: "gilroy";
+    font-weight: normal;
+    font-style: normal;
+    color: var(--basic-white);
+    opacity: .5;
+    font-size: calc(9px + 3 * ((100vw - 420px) / 860));
+    line-height: 1.2rem;
+}
+
+.footer-box4{
+    padding: 1rem 0;
+}
+
+/*End footer*/
+
+
+@media(min-width:500px) {
+    /*Parallax*/
+
+    .picture-minimobile{
+        display: none;
+    }
+
+    .picture-bigmobile{
+        display: block;
+    }
+
+    .picture-tablet{
+        display: none;
+    }
+
+    .picture-bigtablet{
+        display: none;
+    }
+
+    .picture-desktop{
+        display: none;
+    }
+
+    .parallax img:nth-child(1){
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    .parallax img:nth-child(2){
+        bottom: -6rem;
+        left: 0;
+        z-index: 2;
+    }
+
+    .parallax img:nth-child(3){
+        bottom: -6rem;
+        left: 0;
+        z-index: 4;
+    }
+}
+
+@media(min-width:767px) {
+    /*Parallax*/
+
+    .picture-minimobile{
+        display: none;
+    }
+
+    .picture-bigmobile{
+        display: none;
+    }
+
+    .picture-tablet{
+        display: block;
+    }
+
+    .picture-bigtablet{
+        display: none;
+    }
+
+    .picture-desktop{
+        display: none;
+    }
+
+    .parallax img:nth-child(1){
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    .parallax img:nth-child(2){
+        bottom: -12rem;
+        left: 0;
+        z-index: 2;
+    }
+
+    .parallax img:nth-child(3){
+        bottom: -6rem;
+        left: 0;
+        z-index: 4;
+    }
+
+}
+
+@media(min-width:1024px) {
+
+    /*Header*/
+
+    .nav-mobile{
+        display: none;
+    }
+
+    .nav-desktop{
+        position: absolute;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 3rem 0;
+        z-index: 4;
+    }
+
+    .nav-desktop ul{
+        display: flex;
+        align-items: center;
+        list-style: none;
+    }
+
+    .nav-desktop li a{
+        font-family: "gilroy";
+        font-weight: 600;
+        font-style: normal;
+        color: var(--basic-white);
+        text-decoration: none;
+        font-size: var(--font-size-mobile);
+    }
+
+    .nav-desktop .account{
+        display: flex;
+        align-items: center;
+        font-family: "gilroy";
+        font-weight: 600;
+        font-style: normal;
+        color: var(--basic-white);
+        text-decoration: none;
+        font-size: var(--font-size-mobile);
+    }
+
+    .nav-desktop .account img{
+        padding-right: .5rem;
+    }
+
+    .nav-desktop li+li{
+        margin-left: 2rem;
+    }
+
+
+
+    /*Left-side*/
+
+    .left-side{
+        display: flex;
+        margin-left:3rem;
+    }
+
+    /*End Left-side*/
+
+    /*Right-side*/
+
+    .right-side{
+        margin-right:3rem;
+    }
+
+    /*End right-side*/
+
+    /*Parallax*/
+
+    .parallax{
+        min-height: 120vh;
+    }
+
+    .picture-minimobile{
+        display: none;
+    }
+
+    .picture-bigmobile{
+        display: none;
+    }
+
+    .picture-tablet{
+        display: none;
+    }
+
+    .picture-bigtablet{
+        display: block;
+    }
+
+    .picture-desktop{
+        display: none;
+    }
+
+    .parallax img:nth-child(1){
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    .parallax img:nth-child(2){
+        bottom:calc(-20rem + 10 * ((100vh - 60px) / 300));
+        left: 0;
+        z-index: 2;
+    }
+
+    .parallax img:nth-child(3){
+        bottom:calc(-14rem + 10 * ((100vh - 60px) / 300));
+        left: 0;
+        z-index: 4;
+    }
+
+    .parallax .text{
+        top: 20%;
+        left: 20%;
+    }
+
+    .parallax .text h1{
+        font-size: 3rem;
+    }
+
+    /*End Parallax*/
+
+    /*Card*/
+
+    .group{
+        padding: 0 10rem;
+    }
+
+    .card .img{
+        grid-area: img;
+    }
+
+    .card .box-card{
+        grid-area: box-card;
+    }
+
+    .card{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        grid-gap: 2rem;
+        justify-content: space-between;
+        grid-template-areas: "box-card img";
+    }
+
+    .card img{
+        width: 80%;
+    }
+
+    .card:nth-child(2){
+        grid-template-areas: "img box-card";
+    }
+
+    .caption1::before{
+        top: -4rem;
+        left: -1rem;
+    }
+
+    .caption2::before{
+        top: -4rem;
+        left: -1rem;
+    }
+
+    .caption3::before{
+        top: -4rem;
+        left: -1rem;
+    }
+
+    /*End card*/
+
+
+    /*Footer*/
+
+    footer{
+        margin-top: 10rem;
+    }
+
+}
+
+@media(min-width:1368px) {
+    /*Parallax*/
+
+    .picture-minimobile{
+        display: none;
+    }
+
+    .picture-bigmobile{
+        display: none;
+    }
+
+    .picture-tablet{
+        display: none;
+    }
+
+    .picture-bigtablet{
+        display: none;
+    }
+
+    .picture-desktop{
+        display: block;
+    }
+    .parallax img:nth-child(1){
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    .parallax img:nth-child(2){
+        bottom: -15rem;
+        left: 0;
+        z-index: 2;
+    }
+
+    .parallax img:nth-child(3){
+        bottom: -4rem;
+        left: 0;
+        z-index: 4;
+    }
+
+}
